@@ -5,9 +5,24 @@ VisualStudioVersion = 16.0.28922.388
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{35738433-ADCF-442A-8AB4-89B3E6411D43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{B062D0CB-725E-40B8-AB9C-BAB595C8E5D3}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B062D0CB-725E-40B8-AB9C-BAB595C8E5D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B062D0CB-725E-40B8-AB9C-BAB595C8E5D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B062D0CB-725E-40B8-AB9C-BAB595C8E5D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B062D0CB-725E-40B8-AB9C-BAB595C8E5D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B062D0CB-725E-40B8-AB9C-BAB595C8E5D3} = {35738433-ADCF-442A-8AB4-89B3E6411D43}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34EEE95F-CEC5-4B65-A206-E5F1E6609C2F}
