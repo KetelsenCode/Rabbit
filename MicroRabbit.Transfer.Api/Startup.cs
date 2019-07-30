@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using MediatR;
 using MicroRabbit.Banking.Data.Context;
 using MicroRabbit.Infra.IoC;
+using MicroRabbit.Transfer.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -16,7 +17,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace MicroRabbit.Banking.Api
+namespace MicroRabbit.Transfer.Api
 {
     public class Startup
     {
@@ -30,24 +31,22 @@ namespace MicroRabbit.Banking.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<BankingDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("BankingDbConnection")));
+            services.AddDbContext<TransferDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TransferDbConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "Banking Microservice", Version = "v1" });
+                c.SwaggerDoc("v1", new Info { Title = "Transfer Microservice", Version = "v1" });
             });
 
             services.AddMediatR(typeof(Startup));
             RegisterServices(services);
         }
 
-        //Uses our DependencyContainers RegisterServices method from our IoC project
         private void RegisterServices(IServiceCollection services)
         {
             DependencyContainer.RegisterServices(services);
         }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -65,7 +64,7 @@ namespace MicroRabbit.Banking.Api
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Banking Microservice v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Transfer Microservice v1");
 
             });
             app.UseMvc();
