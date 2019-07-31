@@ -134,7 +134,7 @@ namespace MicroRabbit.Infra.Bus
                 var subscriptions = _handlers[eventName];
                 foreach ( var subsciption in subscriptions)
                 {
-                    //Creates a new instance of the subscription type
+                    //Creates a new instance of the subscription type - eg TransferEventHandler
                     var handler = Activator.CreateInstance(subsciption);
                     if (handler == null) continue;
                     //Gets the type of event i.e. TransferCreatedEvent

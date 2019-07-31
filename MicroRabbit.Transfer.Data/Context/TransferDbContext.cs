@@ -8,7 +8,7 @@ namespace MicroRabbit.Transfer.Data.Context
 {
     public class TransferDbContext : DbContext
     {
-        public DbSet<TransferLog> Accounts { get; set; }
+        public DbSet<TransferLog> TransferLogs { get; set; }
         public TransferDbContext(DbContextOptions options) : base(options)
         {
         }
