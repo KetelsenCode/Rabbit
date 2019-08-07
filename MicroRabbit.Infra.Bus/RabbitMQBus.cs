@@ -55,10 +55,12 @@ namespace MicroRabbit.Infra.Bus
 
         }
 
+        //This method gets called from subscribers startup class
         public void Subscribe<T, TH>()
             where T : Event
             where TH : IEventHandler<T>
         {
+            
             var eventName = typeof(T).Name;
             var handlerType = typeof(TH);
 
@@ -79,7 +81,7 @@ namespace MicroRabbit.Infra.Bus
             {
                 throw new ArgumentException($"Handler Type {handlerType.Name} already is registred for '{eventName}'", nameof(handlerType));
             }
-
+            //We add the handlertype to our handlerindex that is our eventname
             _handlers[eventName].Add(handlerType);
 
             StartBasicConsume<T>();
